@@ -29,7 +29,7 @@ export const FeatureTextWrapper = styled.div`
 		position: absolute;
 		bottom: 0;
 		left: 50%;
-		background-color: #fbaa18;
+		background-color: var(--primary-color);
 		transform: translateX(-50%);
 	}
 `;
