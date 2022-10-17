@@ -13,7 +13,7 @@ const BlogItem = ({ data }: BlogItemProps) => {
           <img src={data.mainImage} alt="curso" />
         </div>
         <h3 className="card-title">{data.title}</h3>
-        <p className="card-excerpt">{data.excerpt}</p>
+        <p className="card-excerpt">{data.title}</p>
         
       </div>
     
