@@ -170,7 +170,7 @@ export const LinksContainerNav = styled.div`
 `;
 
 export const TextLogoNav = styled.div`
-  font-size: 25px;
+  font-size: 22px;
   font-weight: bold;
   @media screen and (min-width: 2px) and (max-width: 320px) {
     font-size: 20px;
