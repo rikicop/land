@@ -18,7 +18,18 @@ export interface Project {
 
 }
 
-export interface IndexPageProps {
+export interface Blog {
+  _id: string;
+  _createdAt: string;
+  title: string;
+  body:[object];
+   slug:{
+    current: string;
+  };
+  mainImage: string;
+}
+
+export interface ProjectIndexPageProps {
   data: {
     title: string;
     description: string;
@@ -28,6 +39,16 @@ export interface IndexPageProps {
     mainImage: string;
     github: string;
     vercel: string;
+  }[];
+  title: string;
+}
+
+export interface BlogIndexPageProps {
+  data: {
+    title: string;
+    slug: string | any;
+    body: [object];
+    mainImage: string;
   }[];
   title: string;
 }
@@ -47,6 +68,14 @@ export interface ArticleItemProps {
   };
 }
 
+export interface BlogItemProps {
+  data: {
+    slug: string | any;
+    title: string;
+    mainImage?: string | any;
+    body: [object];
+  };
+}
 
 
 export interface PostType {

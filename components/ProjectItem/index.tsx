@@ -2,7 +2,9 @@ import { CardContainer } from "./ProjectStyles";
 import { useRouter } from "next/router";
 //ICONS
 import { FaTools } from "react-icons/fa";
+//Typings
 import { ArticleItemProps } from "../../typings";
+//Sanity
 import { urlFor } from "../../sanity";
 
 const ProjectItem = ({ data }: ArticleItemProps) => {

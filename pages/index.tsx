@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 //Components
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
@@ -10,21 +9,24 @@ import { GetServerSideProps } from "next";
 //Sanity
 import { sanityClient } from '../sanity';
 //Types
-import { Project } from "../typings"
+import { Project,Blog } from "../typings"
 import PortfolioList from '../components/PortfolioList';
+import BlogList from '../components/BlogList';
 
 // TYPES
 interface Props {
   projects: [Project];
+  blogs: [Blog];
 }
 
-export default function Home({projects}: Props) {
+export default function Home({projects,blogs}: Props) {
   return (
     <>
      <Navbar />
      <Hero {...homeObjOne} />
      <Features />
      <PortfolioList  data={projects} title="Portfolio"/>
+     <BlogList data={blogs} title="Blog" />
     </>
   )
 }
@@ -43,18 +45,29 @@ export const getServerSideProps: GetServerSideProps = async () => {
   github,
   vercel
 }`;
+
+const queryBlog = `*[_type == "post"]{
+  _id,
+  title,
+  mainImage,
+  slug,
+  body}
+`;
   
   const projects = await sanityClient.fetch(query);
+  const blogs = await sanityClient.fetch(queryBlog);
+ 
 
   
-  if(!projects.length){
+  if(!projects.length || !blogs.length) {
     return{
       notFound:true,
     }
   }else{
     return{
       props:{
-        projects,
+      projects,
+      blogs
       }
     }
   }

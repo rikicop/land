@@ -1,7 +1,6 @@
+import { BlogIndexPageProps } from "../typings";
 import styled from "styled-components";
-import { ProjectIndexPageProps } from "../typings";
-import ProjectItem from "./ProjectItem";
-//import styles from "../styles/Card.module.css";
+import BlogItem from "./BlogItem";
 
 
 
@@ -29,7 +28,7 @@ export const FeatureTextWrapper = styled.div`
 		position: absolute;
 		bottom: 0;
 		left: 50%;
-		background-color: #fbaa18;
+		background-color: var(--primary-color);
 		transform: translateX(-50%);
 	}
 `;
@@ -44,7 +43,7 @@ const Title = styled.h1`
   color: black;
 `;
 
-const PortfolioList = ({ data, title }: ProjectIndexPageProps) => {
+const BlogList = ({ data, title }: BlogIndexPageProps) => {
   return (
     <section id="cursos">
       <FeatureTextWrapper>
@@ -52,11 +51,11 @@ const PortfolioList = ({ data, title }: ProjectIndexPageProps) => {
       </FeatureTextWrapper>
       <Wrapper>
         {data.map((article, index) => (
-          <ProjectItem data={article} key={index} />
+          <BlogItem data={article} key={index} />
         ))}
       </Wrapper>
     </section>
   );
 };
 
-export default PortfolioList;
+export default BlogList;
