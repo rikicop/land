@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { CardContainer } from "./BlogItemElements";
 //ICONS
 import { FaChalkboardTeacher,FaClock } from "react-icons/fa";
+//Sanity
+import { urlFor } from "../../sanity";
 
 const BlogItem = ({ data }: BlogItemProps) => {
   const router = useRouter();
@@ -10,7 +12,12 @@ const BlogItem = ({ data }: BlogItemProps) => {
     <CardContainer onClick={() => router.push(`/curso/Slug/${data.slug.current}`)}>
       <div className="card-head">
         <div className="image-wrapper">
-          <img src={data.mainImage} alt="curso" />
+          {data.mainImage && (
+            <img
+              src={urlFor(data.mainImage).url()!}
+              alt={data.title}
+            />
+          )}
         </div>
         <h3 className="card-title">{data.title}</h3>
         <p className="card-excerpt">{data.title}</p>
