@@ -178,7 +178,7 @@ interface Props {
 function Post({ post }: Props) {
   //const [imageUrl, setImageUrl] = useState("");
   //const [submitted, setSubmitted] = useState(false);
-  console.log("POST: ", post);
+  //console.log("POST: ", post);
 
   /* const {
     register,
@@ -217,7 +217,7 @@ function Post({ post }: Props) {
     <div>
      {/*  <Toolbar /> */}
       <Main>
-        <Title>{post.title}</Title>
+        <Title>{/* {post.title} */} Titulo </Title>
         {/* {imageUrl && <MainImage src={imageUrl} />} */}
         <Body>
           {/* <BlockContent blocks={post.body} /> */}
