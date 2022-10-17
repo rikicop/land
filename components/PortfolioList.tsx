@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 import { IndexPageProps } from "../typings";
 import ProjectItem from "./ProjectItem";
