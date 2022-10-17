@@ -3,9 +3,13 @@
 //import BlockContent from "@sanity/block-content-to-react";
 //import Toolbar from "../../components/Toolbar";
 //import { useForm, SubmitHandler } from "react-hook-form";
+
 import { PostType } from "../../typings";
 
 import styled from "styled-components";
+import { sanityClient } from "../../sanity";
+import { GetStaticProps } from "next";
+
 
 const Main = styled.div`
   margin: auto;
@@ -176,6 +180,7 @@ interface Props {
 }
 
 function Post({ post }: Props) {
+  console.log(post);
   //const [imageUrl, setImageUrl] = useState("");
   //const [submitted, setSubmitted] = useState(false);
   //console.log("POST: ", post);
@@ -307,3 +312,55 @@ function Post({ post }: Props) {
 
 export default Post;
 
+export const getStaticPaths = async () => {
+const query = `*[_type == "post"]{
+    _id,
+    slug{
+    current
+  }
+}`;
+const posts = await sanityClient.fetch(query);
+
+const paths = posts.map((post: PostType) => ({
+    params: { 
+      slug: post.slug.current 
+    },
+  }));
+
+return {
+  paths,
+  fallback: "blocking",
+};
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+const query = `*[_type == "post" && slug.current == $slug][0]{
+        _id,
+        _createdAt,
+        title,
+        video,
+        author -> {
+            name,
+            image
+        },
+        'comments': *[_type == "comment" && 
+         post._ref == ^._id &&
+         approved == true],
+        description,
+        mainImage,
+        slug,
+        body
+}`;
+  const post = await sanityClient.fetch(query, { slug: params?.slug });
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      post,
+    },
+    revalidate: 60,
+  };
+}

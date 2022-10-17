@@ -9,7 +9,7 @@ import { urlFor } from "../../sanity";
 const BlogItem = ({ data }: BlogItemProps) => {
   const router = useRouter();
   return (
-    <CardContainer onClick={() => router.push(`/curso/Slug/${data.slug.current}`)}>
+    <CardContainer onClick={() => router.push(`/post/${data.slug.current}`)}>
       <div className="card-head">
         <div className="image-wrapper">
           {data.mainImage && (
