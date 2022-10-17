@@ -7,7 +7,7 @@
 import { PostType } from "../../typings";
 
 import styled from "styled-components";
-import { sanityClient } from "../../sanity";
+import { sanityClient,urlFor } from "../../sanity";
 import { GetStaticProps } from "next";
 
 
@@ -32,6 +32,8 @@ const Title = styled.h1`
 
 const MainImage = styled.img`
   width: 100%;
+  height: 460px;
+  object-fit: cover;
 `;
 
 const Body = styled.div`
@@ -223,11 +225,16 @@ function Post({ post }: Props) {
      {/*  <Toolbar /> */}
       <Main>
         <Title>{/* {post.title} */} Titulo </Title>
-        {/* {imageUrl && <MainImage src={imageUrl} />} */}
+        {post.mainImage && (
+            <MainImage
+              src={urlFor(post.mainImage).url()!}
+              alt={post.title}
+            />
+          )}
         <Body>
           {/* <BlockContent blocks={post.body} /> */}
         </Body>
-        <Rule />
+        {/* <Rule /> */}
         {/*} Form Begining
         {isSubmitting && <h1>Cargando...</h1>}
         {submitted ? (
