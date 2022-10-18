@@ -11,7 +11,7 @@ import { sanityClient } from '../sanity';
 //Types
 import { Project,Blog } from "../typings"
 import PortfolioList from '../components/PortfolioList';
-import BlogList from '../components/BlogList';
+//import BlogList from '../components/BlogList';
 
 // TYPES
 interface Props {
@@ -26,7 +26,7 @@ export default function Home({projects,blogs}: Props) {
      <Hero {...homeObjOne} />
      <Features />
      <PortfolioList  data={projects} title="Portfolio"/>
-     <BlogList data={blogs} title="Blog" />
+     {/* <BlogList data={blogs} title="Blog" /> */}
     </>
   )
 }
@@ -57,8 +57,6 @@ const queryBlog = `*[_type == "post"]{
   const projects = await sanityClient.fetch(query);
   const blogs = await sanityClient.fetch(queryBlog);
  
-
-  
   if(!projects.length || !blogs.length) {
     return{
       notFound:true,
