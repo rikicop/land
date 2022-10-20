@@ -10,7 +10,7 @@ export const homeObjOne = {
     "I'm a software engineer with a passion for building web applications. I am a Javascript programmer, but I also have experience with other languages such as Python. I am also familiar with the following technologies: React, Next ,Node, Express, MongoDB, SQL. I am currently working on several projects that you can check in my portfolio. Here I leave my resume if you need more information about me.",
   buttonLabel: "CV",
   imgStart: "",
-  img: require("../assets/program.svg").default,
+  img: require("../assets/program3.svg").default,
   alt: "Resume",
   start: "",
 };
