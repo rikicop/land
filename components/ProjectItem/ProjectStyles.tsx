@@ -54,10 +54,10 @@ export const CardContainer = styled.div`
       padding-top: 10px;
       position: relative;
       .btn-read {    
-        padding: 1rem;
+        padding: 0.5rem;
         font-family: inherit;
         font-weight: bold;
-        font-size: 1rem;
+        font-size: 0.8rem;
         margin: 1rem;
         border: 2px solid  var(--tertiary-color);
         background: transparent;

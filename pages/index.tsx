@@ -42,6 +42,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
   slug,
   body,
   technologies,
+  video,
   github,
   vercel
 }`;

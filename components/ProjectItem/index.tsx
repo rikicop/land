@@ -8,7 +8,7 @@ import { ArticleItemProps } from "../../typings";
 import { urlFor } from "../../sanity";
 
 const ProjectItem = ({ data }: ArticleItemProps) => {
-  //console.log('Data: ' , data);
+  /* console.log('Data: ' , data); */
   const router = useRouter();
   return (
     <CardContainer>
@@ -36,6 +36,7 @@ const ProjectItem = ({ data }: ArticleItemProps) => {
         <div className="btn-wrapper">
           <button className="btn-read" onClick={()=> router.push(data.vercel)}>DEMO</button>
           <button className="btn-read" onClick={()=> router.push(data.github)}>GITHUB</button>
+          {data.video && <button className="btn-read" onClick={()=> router.push(data.video)}>VIDEO</button>}
         </div>
       </div>
     </CardContainer>

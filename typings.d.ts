@@ -9,6 +9,7 @@ export interface Project {
     image: string;
   };
   technologies: string;
+  video: string;
   vercel: string;
   github: string;
   slug:{
@@ -37,6 +38,7 @@ export interface ProjectIndexPageProps {
     body: [object];
     technologies: string;
     mainImage: string;
+    video: string;
     github: string;
     vercel: string;
   }[];
@@ -61,6 +63,8 @@ export interface ArticleItemProps {
     technologies: string;
     mainImage?: string | any;
     body: [object];
+    description: video;
+    video: string;
     github: string;
     vercel: string;
     authorPicture?: string | any;
