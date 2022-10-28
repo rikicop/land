@@ -51,7 +51,7 @@ const Navbar = () => {
             duration={100}
             style={{ cursor: "pointer" }}
           >
-            <li>Principal</li>
+            <li>Home</li>
           </LinkScroll>
           <LinkScroll
             to="cursos"
